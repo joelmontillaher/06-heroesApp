@@ -1,1 +1,32 @@
-<p>hero-page works!</p>
+<ng-template #divLoading>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<div *ngIf="hero; else divLoading" style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 20px;">
+  <mat-card style="flex: 1; max-width: 400px;">
+    <mat-card-header>
+      <mat-card-title>{{ hero.alter_ego }}</mat-card-title>
+      <mat-card-subtitle>{{ hero.alter_ego }}</mat-card-subtitle>
+    </mat-card-header>
+    <img [src]="hero | heroImage" [alt]="hero.superhero" mat-card-image>
+  </mat-card>
+
+  <mat-card style="flex: 1; max-width: 400px;">
+    <mat-card-header>
+      <mat-card-title>Información del Héroe</mat-card-title>
+      <mat-card-subtitle>{{ hero.superhero }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>{{ hero.first_appearance }}</mat-list-item>
+        <mat-list-item>{{ hero.characters }}</mat-list-item>
+        <mat-list-item>{{ hero.publisher }}</mat-list-item>
+        <mat-list-item>{{ hero.alter_ego }}</mat-list-item>
+      </mat-list>
+      <button mat-button color="warn" (click)="goBack()">Lista de Héroes</button>
+      <button mat-button color="warn" (click)="goBack2()">Buscar más Héroes</button>
+    </mat-card-content>
+  </mat-card>
+</div>

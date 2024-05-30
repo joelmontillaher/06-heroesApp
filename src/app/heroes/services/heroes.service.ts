@@ -1,13 +1,14 @@
+import { environments } from './../../../environments/environments';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
-import { environment } from '../../../environments/environments.prod';
+
 
 @Injectable({providedIn: 'root'})
 export class HeroesService {
 
-  private baseUrl:string = environment.baseUrl;
+  private baseUrl:string = environments.baseUrl;
   constructor(private http: HttpClient) { }
 
 
